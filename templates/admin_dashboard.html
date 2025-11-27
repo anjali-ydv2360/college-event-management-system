@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin_dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+
+</head>
+<body>
+
+<header>
+        <div class="navbar">
+            <div class="nav_logo">
+                <h2>SRMCEM Events Portal</h2>
+            </div>
+
+            <div class="nav_home">
+                <a href="{% url 'home' %}">Home</a>
+            </div>
+
+            <div class="nav_add_event">
+                <a href="{% url 'add_event' %}">Add New Event</a>
+            </div>
+
+           <div class="nav_logout">
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+
+        </div>
+    </header>
+
+<h2>Admin Dashboard</h2>
+<div class="admin_table">
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Actions</th>
+  </tr>
+  {% for event in events %}
+  <tr>
+    <td>{{ event.title }}</td>
+    <td>{{ event.date }}</td>
+    <td>
+      <a href="{% url 'edit_event' event.id %}">Edit</a> |
+      <a href="{% url 'delete_event' event.id %}">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table></div>
+</body>
+</html>

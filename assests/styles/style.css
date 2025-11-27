@@ -1,0 +1,13 @@
+*{
+    margin:0;
+    font-family: Arial;
+    border: border-box;
+}
+.navbar{
+    height: 60px;
+    background-color: #064d99;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

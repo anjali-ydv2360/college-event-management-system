@@ -1,0 +1,25 @@
+<h2>Register for: {{ event.title }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Name:</label>
+    {{ form.name }}
+
+    <label>Roll Number:</label>
+    {{ form.roll_number }}
+
+    <label>Course:</label>
+    {{ form.course }}
+
+    <label>Branch:</label>
+    {{ form.branch }}
+
+    <label>Contact Number:</label>
+    {{ form.contact_number }}
+
+    <label>Email:</label>
+    {{ form.email }}
+
+    <button type="submit">Submit Registration</button>
+</form>

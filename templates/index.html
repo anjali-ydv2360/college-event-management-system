@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+
+</head>
+<body>
+    
+
+    <header>
+        <div class="navbar">
+            <div class="nav_logo">
+                <h2>SRMCEM Events Portal</h2>
+            </div>
+
+            <div class="nav_home">
+                <a href="{% url 'home' %}">Home</a>
+            </div>
+             
+            
+            <!-- <div class="nav_events">
+                <p>Events</p>
+            </div> -->
+             
+
+
+            {% if user.is_authenticated %}
+    {% if user.is_staff %}
+        <a href="{% url 'admin_dashboard' %}" class="btn btn-primary">Admin Dashboard</a>
+    {% else %}
+        <a href="{% url 'student_dashboard' %}" class="btn btn-primary">Student Dashboard</a>
+    {% endif %}
+{% endif %}
+
+
+
+
+            {% if user.is_authenticated %}
+            <div class="nav_logout">
+                Hello,  {{user.first_name}}
+            <a href="accounts/logout">  Logout</a>
+            </div>
+
+            {% else %}
+
+            <div class="Nav_register">
+                <a href="accounts/register">Register</a>
+            </div>
+
+            <div class="nav_login">
+                <a href="accounts/login">Login</a>
+            </div>
+
+            {% endif %}
+
+        </div>
+    </header>
+   <div class="clgimg">
+    <img src="{% static 'img/srm_img.jpg' %}" alt="SRM Image">
+
+    <div class="hero_sec">
+        <p>WELCOME!!</p></div>
+        <div class="hero_sec1">
+        <p>Manage and Participate in College Events Seamlessely</p>
+    </div>
+
+    </div>
+    <div class="event_sec">
+        
+    <!-- <div class="event">
+        <div class="event_img">
+            <img src="" alt="">
+        </div>
+
+        <div class="event_detail">
+            <div class="event_name">
+                <h3>Guest Lecture</h3>
+            </div>
+
+            <div class="event_place">
+                <p>Seminar hall-A</p>
+            </div>
+
+            <div class="event_timing">
+                <p>time-10:00 a.m </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="event">
+        <div class="event_img">
+            <img src="" alt="">
+        </div>
+
+        <div class="event_detail">
+            <div class="event_name">
+                <h3>Sports competition</h3>
+            </div>
+
+            <div class="event_place">
+                <p>Ground</p>
+            </div>
+
+            <div class="event_timing">
+                <p>time-01:00 p.m </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="event">
+        <div class="event_img">
+            <img src="" alt="">
+        </div>
+
+        <div class="event_detail">
+            <div class="event_name">
+                <h3>Debate competition</h3>
+            </div>
+
+            <div class="event_place">
+                <p>Seminar hall-A</p>
+            </div>
+
+            <div class="event_timing">
+                <p>time-10:00 a.m </p>
+            </div>
+        </div>
+    </div> -->
+
+    
+
+
+{% for event in events %}
+<div class="event" style="border:1px solid #ccc; padding:10px; margin-bottom:10px;"><div class="event_content">
+  <h2>{{ event.title }}</h2><br>
+  <p><b>Description:</b>{{ event.description|truncatechars:100 }}</p><br>
+  <p><b>Date:</b> {{ event.date }}</P> <br>
+   <P>  <b>Venue:</b> {{ event.venue }}</p></div><br>
+
+  {% if event.poster %}
+   <img src="{{ event.poster.url }}" width="200"> <br>
+  {% endif %}
+
+  {% if user.is_authenticated %}
+    {% if user.role == 'admin' %}
+      <a href="{% url 'edit_event' event.id %}">Edit</a> |
+      <a href="{% url 'delete_event' event.id %}">Delete</a>
+    {% elif user.role == 'student' %}
+      <a href="{% url 'register_event' event.id %}">Participate</a>
+    {% endif %}
+  {% else %}
+    <a href="{% url 'login' %}">Login</a>
+  {% endif %}
+</div>
+{% empty %}
+<p>No events available.</p>
+{% endfor %}
+
+</div>
+</body>
+</html>

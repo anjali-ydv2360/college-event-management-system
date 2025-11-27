@@ -1,0 +1,143 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: Arial;
+    box-sizing: border-box;
+
+}
+.navbar{
+    height: 90px;
+    background-color: #064d99;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+/* .hero_sec p{
+    font-size: 50px;
+    font-family: initial;
+    
+}
+.hero_sec{
+    text-align: center;
+}
+.hero_sec1{
+    text-align: center;
+}
+.hero_sec1 p{
+     font-size: 30px;
+     font-family: serif
+} */
+
+/* .clgimg{
+width: 100%;
+    height: 200px;
+}
+
+.clgimg img{
+    position: absolute;
+    z-index: -1;
+    opacity: 0.7;
+
+} */
+
+.clgimg {
+    position: relative;
+    width: 100%;
+    height: 500px;   /* adjust as you need */
+    overflow: hidden;
+}
+
+/* Image fits inside the container */
+.clgimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* makes image fill without distortion */
+    display: block;
+    filter: brightness(60%); /* optional to make text clearer */
+     opacity: 0.9;
+}
+
+/* Text on top of image */
+.hero_sec,
+.hero_sec1 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+
+.hero_sec {
+    top: 10%; 
+    font-size: 50px;
+    font-family: initial;
+}
+
+
+.hero_sec1 {
+    top: 28%;
+    font-size: 25px;
+    font-family: serif;
+}
+
+
+.event_sec{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+.event{
+    height: 400px;
+    width: 21%;
+    background-color: white;
+    padding: 20px 0px 15px;
+    margin-top: 15px;
+    border: 2px solid black;
+    border-radius: 10%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.event_content{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+.reg,.log{
+    height: auto;
+    width: 500px;
+    display: block;
+    margin: 50px auto;
+    padding: 5px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+label.form-label{
+    color: black !important;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}

@@ -1,0 +1,12 @@
+{% load static %}
+<h2>Edit Event</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" name="title" value="{{ event.title }}" required><br>
+  <textarea name="description" required>{{ event.description }}</textarea><br>
+  <input type="date" name="date" value="{{ event.date|date:'Y-m-d' }}" required><br>
+  <input type="text" name="venue" value="{{ event.venue }}" required><br>
+  <input type="text" name="category" value="{{ event.category }}" required><br>
+  <input type="file" name="poster"><br><br>
+  <button type="submit">Update Event</button>
+</form>

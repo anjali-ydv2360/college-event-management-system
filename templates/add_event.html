@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin_dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+
+</head>
+<body>
+
+<header>
+        <div class="navbar">
+            <div class="nav_logo">
+                <h2>SRMCEM Events Portal</h2>
+            </div>
+
+            <div class="nav_home">
+                <a href="{% url 'home' %}">Home</a>
+            </div>
+
+            <div class="nav_admin_dashboard">
+                <a href="{% url 'admin_dashboard' %}">admin Dashboard</a>
+            </div>
+
+           <div class="nav_logout">
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+
+        </div>
+    </header>
+
+<h2>Add Event</h2><hr>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" name="title" placeholder="Event Title" required><br>
+  <textarea name="description" placeholder="Description" required></textarea><br>
+  <input type="date" name="date" required><br>
+  <input type="text" name="venue" placeholder="Venue" required><br>
+  <input type="text" name="category" placeholder="Category" required><br>
+  <input type="file" name="poster"><br><br>
+  <button type="submit">Add Event</button>
+</form>

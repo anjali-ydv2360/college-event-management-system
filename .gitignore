@@ -1,0 +1,28 @@
+# Virtual environment
+virtual/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# SQLite database
+db.sqlite3
+
+# Media uploads
+media/
+
+# Environment variables
+.env
+
+# VSCode settings
+.vscode/
+
+# Django collected static files
+staticfiles/
+
+# Virtualenv files
+pyvenv.cfg
