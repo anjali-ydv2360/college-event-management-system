@@ -22,11 +22,6 @@
             </div>
              
             
-            <!-- <div class="nav_events">
-                <p>Events</p>
-            </div> -->
-             
-
 
             {% if user.is_authenticated %}
     {% if user.is_staff %}
@@ -40,8 +35,10 @@
 
 
             {% if user.is_authenticated %}
+            <div class="username">
+            Hello,  {{user.first_name}}</div>
+
             <div class="nav_logout">
-                Hello,  {{user.first_name}}
             <a href="accounts/logout">  Logout</a>
             </div>
 

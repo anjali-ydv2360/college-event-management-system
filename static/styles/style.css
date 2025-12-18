@@ -141,3 +141,22 @@ input, select {
     border-radius: 8px;
     border: 1px solid #aaa;
 }
+
+.event_reg{
+    height: auto;
+    width: 500px;
+    display: block;
+    margin: 50px auto;
+    padding: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#reg_event_name{
+    text-align: center;
+    margin-top: 20px;
+}
