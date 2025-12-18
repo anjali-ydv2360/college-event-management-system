@@ -104,3 +104,5 @@ http://127.0.0.1:8000/admin/
 ## 🤝 Contribution
 
 Feel free to contribute! Fork the repo → make changes → create a pull request.
+
+GitHub contribution email fix
